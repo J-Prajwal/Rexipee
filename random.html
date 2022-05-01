@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Recipe</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/recipe.css">
+</head>
+<body>
+    <header></header>
+
+    <h1 style="text-align: center; color: white; text-transform: capitalize; margin-top: 10px;">Random recipe</h1>
+
+    <div id="container">
+        <div id="img">
+            <img id="thumbnail">
+        </div>
+        <div id="details">
+            <h1 id="name">Name: </h1>
+            <h2 id="area">Area: </h2>
+            <h2 id="cat">Category: </h2>
+            <div id="ingredMsrs"><h3>Ingredients</h3></div>
+        </div>
+    </div>
+    <div id="instructions">
+        <h2>Instructions</h2>
+    </div>
+
+    <div id="yt">
+        <iframe src="" frameborder="0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="video"></iframe>
+    </div>
+
+    <div id="article" style="margin: auto; margin-top: 10px;">
+        <center>
+            <a id="blog" target="_blank">Checkout Our Blog</a>
+        </center>
+    </div>
+</body>
+</html>
+
+<script type="module">
+    import {navbar1} from './components/navbar.js'
+    document.querySelector('header').innerHTML = navbar1();
+</script>
+<script src="./scripts/random.js"></script>

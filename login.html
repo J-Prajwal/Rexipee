@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Login</title>
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/295/295128.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-wrapper">
+
+            <h3 class="login-text"><i class="bi bi-person-circle ac-logo"></i>Login</h3>
+
+            <form>
+                <div class="item"><input class="input" id="username" type="text" placeholder="Username"></div>
+                <div class="item"><input class="input" id="password" type="password" placeholder="Password"> </div>
+                <span class="remember"> <a href="#">Forgot Password?</a> </span>
+
+                <div class="item submit"><button type="submit" id="submit">Submit</button></div>
+            </form>
+            <h2><span>OR</span></h2>
+
+            <div class="social-media">
+
+                <a href="#">
+                    <div class="icons8-google social-mediaImg"></div>
+                </a>
+                <a href="#">
+                    <div class="icons8-facebook-circled social-mediaImg"></div>
+                </a>
+                <a href="#">
+                    <div class="icons8-twitter social-mediaImg"></div>
+                </a>
+
+            </div>
+            <center>
+                <span class="ac">Don't have an Account? <a href="signup.html">Sign Up</a></span>
+            </center>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    let login = async () => {
+        event.preventDefault();
+        let user_data = {
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value,
+        };
+        // console.log(user_data.username, user_data.password);
+
+        user_data = JSON.stringify(user_data);
+
+        let res = await fetch("https://masai-api-mocker.herokuapp.com/auth/login", {
+            method: "POST",
+            body: user_data,
+
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        let data = await res.json();
+
+        let username = document.getElementById('username').value;
+        getUserDetail(username, data.token);
+        // console.log('yaha',data);
+    };
+
+    document.getElementById("submit").addEventListener("click", login);
+
+    let getUserDetail = async (username, token) => {
+        console.log("here");
+        let res = await fetch(
+            `https://masai-api-mocker.herokuapp.com/user/${username}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+
+        let data = await res.json();
+        console.log("user data: ", data);
+        alert(`Welcome ${data.name}`);
+        localStorage.setItem('user', data.name);
+        window.location.href = 'index.html';    
+    };
+</script>

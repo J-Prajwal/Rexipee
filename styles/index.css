@@ -1,0 +1,104 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+#user {
+    color: white;
+    font-size: xx-large;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+#user #name {
+    color: yellow;
+    font-weight: 600;
+}
+
+body {
+    background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#navbar {
+    opacity: 90%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+    box-shadow: rgba(196, 193, 193, 0.979) 0px 3px 8px;
+}
+
+#navbar div {
+    display: flex;
+}
+
+#navbar div a {
+    margin-right: 30px;
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
+}
+
+#search {
+    width: 350px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    height: 90%;
+}
+
+#searchBox {
+    cursor: pointer;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: large;
+    font-family: sans-serif;
+    outline: 0;
+    width: 100%;
+    border-radius: inherit;
+    height: 100%;
+    border: 1px solid grey;
+}
+
+#x {
+    color: red;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: xxx-large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+}
+
+#recipe {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: auto;
+    margin-top: 10px;
+    /* border: 1px solid red; */
+    width: 80%;
+}
+
+#recipe div {
+    margin: auto;
+    /* border: 1px solid red; */
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-bottom: 20px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    /* background-color: white; */
+    /* opacity: 75%; */
+    border-radius: 10px;
+}
+
+img {
+    border-radius: 40%;
+}
